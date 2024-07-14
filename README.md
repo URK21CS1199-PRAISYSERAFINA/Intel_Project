@@ -52,6 +52,54 @@ Our solution involves setting up four overhead RGB cameras in a 2x2 pattern to c
 
 ![image](https://github.com/user-attachments/assets/801fe05c-7a30-43e2-9554-b4428f84572e)
 
+## Methodology
+
+To create the solution, we utilized Gazebo simulation and ROS2 (Robot Operating System) for simulating and testing robots. Here's an overview of our approach:
+
+1. Introduction to ROS-Gazebo:
+    - We used ROS2 and Gazebo to simulate the robots and environment, providing a robust     
+      platform for developing and testing our solution.
+
+2. Setting up the ROS2 Environment:
+
+    - Our development environment was set up on Ubuntu 20.04 with ROS2 Foxy. The setup involved
+      installing the necessary packages and dependencies for ROS2.
+
+3. Adding Overhead Cameras:
+    - We added four overhead RGB cameras in a 2x2 pattern within the Gazebo simulation to     
+      ensureoverlapping fields of view for comprehensive room coverage.
+
+4. Setting up the Environment:
+    - The simulated room in Gazebo contained static objects like chairs, tables, stools, and 
+      boxes. This setup allowed us to mimic a real-world scenario for testing our solution.
+
+5. Acquiring Data from Cameras:
+    - ROS2 operates on a publisher-subscriber model. We set up nodes to stream images from the 
+      cameras on specific topics.
+    - A Python script was used to access these images. The script initiated nodes, created     
+      subscriptions to the camera topics, and executed a callback function whenever an image 
+      was published.
+    - Important commands included sourcing the ROS2 setup script (source 
+      /opt/ros/foxy/setup.bash) before running the Python script.
+
+6. Generating the 2D Occupancy Grid Map:
+    - We captured images from the overhead cameras and stitched them together to create a     
+      unified view of the room.
+    - Preprocessing techniques such as filtering, noise reduction, and edge detection were 
+      applied to enhance the image quality.
+    - Image processing algorithms generated a 2D occupancy grid map indicating occupied and 
+      unoccupied spaces.
+      
+7. Dynamic Object Detection and Semantic Labeling:
+    - Object detection algorithms recognized and labeled objects like "table" and "chair." The 
+      occupancy grid map was dynamically updated to reflect changes in object positions in 
+      real-time.
+
+8. Evaluating the Generated Map:
+    - We used Rviz, a ROS visualization tool, to evaluate the accuracy of the generated map.         Key point measurements were used as benchmarks.
+    - A reference map generated with Cartographer was provided for comparison.
+    - The evaluation involved running a command to visualize the map in Rviz, adjusting the 
+      YAML file path as necessary.
 
 
 
