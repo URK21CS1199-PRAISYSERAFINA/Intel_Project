@@ -50,7 +50,7 @@ The primary objective of this project is to develop a 2D occupancy grid map of a
 
 Our solution involves setting up four overhead RGB cameras in a 2x2 pattern to capture overlapping images of a room. Initially, we will capture images of a room with static objects, then stitch these images together to create a unified view, applying preprocessing techniques to enhance image quality. From this unified view, we will generate a 2D occupancy grid map that indicates occupied and unoccupied spaces. To accommodate dynamic environments, we will implement object detection algorithms to recognize and label objects such as "table" and "chair," updating the occupancy grid map to reflect changes in object positions. The updated map will integrate semantic labels for additional context, ensuring it accurately represents the room's current state. Finally, we will validate the effectiveness of the occupancy grid map by using it for autonomous mobile robot (AMR) navigation, ensuring successful navigation in both static and dynamic environments. This approach ensures a robust and dynamic 2D occupancy grid mapping system that enhances AMR path-planning and navigation capabilities.
 
-
+![image](https://github.com/user-attachments/assets/801fe05c-7a30-43e2-9554-b4428f84572e)
 
 
 
