@@ -104,10 +104,63 @@ To create the solution, we utilized Gazebo simulation and ROS2 (Robot Operating 
 ## Validation
 To validate our solution, we tested the map's accuracy and effectiveness using ROS and Gazebo simulations. Initially, we verified the map in a static environment where AMRs navigated the room using the generated map. We then introduced changes to the room, re-captured images, and tested the dynamically updated map. Semantic labels were verified, performance metrics were measured, and extensive field tests in the simulation environment ensured robustness. This comprehensive approach ensured the creation of a reliable and dynamic 2D occupancy grid map, enhancing AMR navigation capabilities.
 
+## Advantages and Limitations of the Approach
+### Advantages:
 
+1. High Accuracy
+    - By using four overhead RGB cameras in a 2x2 pattern, we achieved comprehensive coverage        of the room with overlapping fields of view, leading to high accuracy in generating the        2D occupancy grid map.
+    - The integration of preprocessing techniques such as filtering, 
+     noise reduction, and edge detection enhanced the quality of the stitched images, further       improving the map's accuracy.
+    - Dynamic object detection and semantic labeling provided additional context and ensured         real-time updates to the occupancy grid map, maintaining accuracy even in dynamic 
+      environments.
 
+2. Scalability:
+    - The use of ROS2 and Gazebo for simulation allows for easy scaling of the system to 
+      larger environments or more complex scenarios.
+    - Additional cameras can be added to cover larger areas, and the system can be extended to       include more advanced object detection algorithms to handle a wider variety of objects.
 
+3. Real-time Processing:
+    - The ROS2 publisher-subscriber model enables real-time image streaming and processing, 
+      allowing the occupancy grid map to be dynamically updated as the environment changes.
+    - This real-time capability is crucial for applications involving autonomous mobile robots       (AMRs) that require up-to-date information for navigation.
+      
+4. Visualization and Benchmarking:
+    - The use of Rviz for visualization provides a clear and intuitive way to evaluate the     
+      generated maps.
+    - Benchmarking against a reference map generated with Cartographer allows for quantitative       assessment of the system's performance.
+      
+### Limitations:
 
+1. Computational Complexity:
+    - The image stitching, preprocessing, and object detection algorithms require significant 
+      computational resources, which could be a limitation in resource-constrained  
+      environments.
+    - Real-time processing demands high-performance hardware to ensure low latency and quick  
+      updates to the occupancy grid map.
 
+2. Initial Setup and Calibration:
+    - Setting up and calibrating the cameras to ensure proper overlap and coverage can be
+      time-consuming and may require precise adjustments.
+    - Misalignment or calibration errors can affect the accuracy of the stitched images and,   
+      consequently, the occupancy grid map.
+
+3. Environmental Dependence:
+    - The system's performance is dependent on the quality of the captured images. Poor   
+      lighting conditions, occlusions, or reflective surfaces can degrade image quality and  
+      affect the accuracy of the occupancy grid map.
+    - Static objects are easier to detect and map, while dynamic objects may introduce   
+      additional complexity and require more sophisticated algorithms for accurate real-time   
+      tracking.
+      
+4. Semantic Labeling Limitations:
+    - While the system can label common objects like "table" and "chair," it may struggle with       less common or more complex objects without additional training and customization.
+    - The accuracy of semantic labeling is dependent on the performance of the object     
+      detection algorithms, which may require fine-tuning and validation.
+      
+5. Dependency on ROS2 and Gazebo:
+    - The solution relies on the ROS2 and Gazebo platforms, which may have a steep learning   
+      curve for new users and require familiarity with their tools and frameworks.
+    - Any updates or changes to these platforms may impact the system's functionality and   
+      require adaptations.
 
 
