@@ -2,11 +2,11 @@
 
 ## Project: Development of a 2D Occupancy Grid Map of a Room Using Overhead Cameras
 
-### Problem Definition
+## Problem Definition
 The primary objective of this project is to develop a 2D occupancy grid map of a room using overhead cameras. This grid map will be analogous to the maps created by ROS2-based SLAM algorithms typically used by autonomous mobile robots (AMRs) for path-planning and navigation.
 
-### Description
-#### Phase 1: Static Environment Mapping
+## Description
+### Phase 1: Static Environment Mapping
 
 1. Setup:
     - Equip a room or designated area with four overhead RGB cameras.
@@ -26,7 +26,7 @@ The primary objective of this project is to develop a 2D occupancy grid map of a
     - Demonstrate that the generated occupancy grid map can be effectively used by AMRs for   
       path-planning and navigation within the static environment.
 
-#### Phase 2: Dynamic Environment Mapping and Semantic Labeling
+### Phase 2: Dynamic Environment Mapping and Semantic Labeling
 
 1. Dynamic Environment:
     - Modify the room environment by moving objects such as tables and chairs.
@@ -45,3 +45,13 @@ The primary objective of this project is to develop a 2D occupancy grid map of a
 4. Validation:
     - Demonstrate that the dynamically updated and semantically labeled occupancy grid map can 
       be effectively used by AMRs for path-planning and navigation in the dynamic environment.
+
+## Solution Approach
+
+Our solution involves setting up four overhead RGB cameras in a 2x2 pattern to capture overlapping images of a room. Initially, we will capture images of a room with static objects, then stitch these images together to create a unified view, applying preprocessing techniques to enhance image quality. From this unified view, we will generate a 2D occupancy grid map that indicates occupied and unoccupied spaces. To accommodate dynamic environments, we will implement object detection algorithms to recognize and label objects such as "table" and "chair," updating the occupancy grid map to reflect changes in object positions. The updated map will integrate semantic labels for additional context, ensuring it accurately represents the room's current state. Finally, we will validate the effectiveness of the occupancy grid map by using it for autonomous mobile robot (AMR) navigation, ensuring successful navigation in both static and dynamic environments. This approach ensures a robust and dynamic 2D occupancy grid mapping system that enhances AMR path-planning and navigation capabilities.
+
+
+
+
+
+
