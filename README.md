@@ -104,7 +104,7 @@ To create the solution, we utilized Gazebo simulation and ROS2 (Robot Operating 
 ## Validation
 To validate our solution, we tested the map's accuracy and effectiveness using ROS and Gazebo simulations. Initially, we verified the map in a static environment where AMRs navigated the room using the generated map. We then introduced changes to the room, re-captured images, and tested the dynamically updated map. Semantic labels were verified, performance metrics were measured, and extensive field tests in the simulation environment ensured robustness. This comprehensive approach ensured the creation of a reliable and dynamic 2D occupancy grid map, enhancing AMR navigation capabilities.
 
-## Advantages and Limitations of the Approach
+## 5. Advantages and Limitations of the Approach
 ### Advantages:
 
 1. High Accuracy
